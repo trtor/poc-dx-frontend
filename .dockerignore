@@ -1,0 +1,16 @@
+# Dependency
+node_modules/**
+
+# Editor
+.idea
+.vscode
+
+# Log
+*.log
+
+# Secret
+*.key
+
+# Utils
+scripts/**
+tools/**
