@@ -5,6 +5,12 @@ export type SuggestionList = {
   pid: number;
 };
 
+export type DiagnosisRelation = {
+  conceptId: string;
+  term: string;
+  pid: number;
+};
+
 /*
   Rank: number;
   conceptId: string;
