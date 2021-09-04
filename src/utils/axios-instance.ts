@@ -6,7 +6,7 @@ const axiosConfig: AxiosRequestConfig = {
 
 export const axiosInstance: AxiosInstance = axios.create({
   ...axiosConfig,
-  baseURL: process.env.REACT_APP_API_BASEURL,
+  baseURL: process.env.REACT_APP_API_BASEURL + '/snomed-suggestion',
 });
 
 if (process.env.REACT_APP_API_BASEURL === undefined) console.info('Some ENV are null, Axios instance');
