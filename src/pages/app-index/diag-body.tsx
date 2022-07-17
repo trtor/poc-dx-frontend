@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import { fetchDiagnosisRelation } from '../../api/diag-relation';
-import { CloseSuggestion, SuggestedNarrowTerm } from '../../components/diag-styled';
-import { DiagnosisRelation } from '../../types/query-response';
-import { SelectedListType } from './app';
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import { fetchDiagnosisRelation } from "../../api/diag-relation";
+import { CloseSuggestion, SuggestedNarrowTerm } from "../../components/diag-styled";
+import type { DiagnosisRelation } from "../../types/query-response";
+import type { SelectedListType } from "./app";
 
 export const DiagnosisBody: React.FC<{
   conceptId: string;
@@ -15,15 +15,14 @@ export const DiagnosisBody: React.FC<{
   const [selectedBodySite, setSelectedBodySite] = useState<SelectedListType | null>(null);
 
   useEffect(() => {
-    (async function () {
-      const res = await fetchDiagnosisRelation<DiagnosisRelation>(conceptId, 'relation-body');
-      if (res) setConceptRelList(res.sort((a, b) => (a.term || '').localeCompare(b.term || '')));
+    (async function (): Promise<void> {
+      const res = await fetchDiagnosisRelation<DiagnosisRelation>(conceptId, "relation-body");
+      if (res) setConceptRelList(res.sort((a, b) => (a.term || "").localeCompare(b.term || "")));
       else if (conceptRelList.length) setConceptRelList([]);
     })();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [conceptId]);
 
-  const selectSite = (site: SelectedListType) => {
+  const selectSite = (site: SelectedListType): void => {
     setSelectedBodySite(site);
   };
 
