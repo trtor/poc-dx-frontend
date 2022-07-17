@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import { SelectedListType } from './app';
-import { DiagnosisBody } from './diag-body';
-import { DiagnosisNarrow } from './diag-narrow';
+import React from "react";
+import styled from "styled-components";
+import type { SelectedListType } from "./app";
+import { DiagnosisBody } from "./diag-body";
+import { DiagnosisNarrow } from "./diag-narrow";
 
 export const SelectedDiagnosisList: React.FC<{
   diagnosisList: SelectedListType[];

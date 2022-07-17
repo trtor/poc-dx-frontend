@@ -10,4 +10,9 @@ export const axiosInstance: AxiosInstance = axios.create({
   baseURL: (process.env['REACT_APP_API_BASEURL'] || '') + '/snomed-suggestion',
 });
 
+export const axiosMedApi: AxiosInstance = axios.create({
+  ...axiosConfig,
+  baseURL: process.env['REACT_APP_API_BASEURL'] || '',
+});
+
 if (process.env['REACT_APP_API_BASEURL'] === undefined) console.info('Some ENV are null, Axios instance');
