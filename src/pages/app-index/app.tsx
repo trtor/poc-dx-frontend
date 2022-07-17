@@ -1,4 +1,5 @@
-import axios, { CancelTokenSource } from "axios";
+import type { CancelTokenSource } from "axios";
+import axios from "axios";
 import React, { useState } from "react";
 import AsyncSelect from "react-select/async";
 import styled from "styled-components";

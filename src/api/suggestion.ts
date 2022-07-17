@@ -6,10 +6,8 @@ import { axiosInstance } from '../utils/axios-instance';
 
 export async function fetchSuggestion(text: string, cancelToken?: CancelToken): Promise<SuggestionList[] | undefined> {
   try {
-    const res: AxiosResponse<SuggestionList[]> = await axiosInstance({
-      method: 'GET',
-      url: 'suggestion/?' + qs.stringify({ q: text }),
-      cancelToken: cancelToken,
+    const res: AxiosResponse<SuggestionList[]> = await axiosInstance.get('suggestion/?' + qs.stringify({ q: text }), {
+      cancelToken,
     });
     return res.data;
   } catch (error) {
