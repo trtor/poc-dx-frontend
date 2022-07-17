@@ -1,16 +1,17 @@
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { AppSearchDx } from './pages/app-index/app';
-import { NotFound } from './pages/not-found/not-found';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { AppSearchDx } from "./pages/app-index/app";
+import { NotFound } from "./pages/not-found/not-found";
 
-function Routes(props: any) {
+function MainRoutes() {
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL} {...props}>
-      <Switch>
-        <Route path="/" exact component={AppSearchDx} />
-        <Route path="*" component={NotFound} />
-      </Switch>
+    <BrowserRouter basename={process.env.PUBLIC_URL || ""}>
+      <Routes>
+        <Route path="/" element={<AppSearchDx />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </BrowserRouter>
   );
 }
 
-export default Routes;
+export default MainRoutes;

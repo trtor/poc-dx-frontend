@@ -1,6 +1,7 @@
-import axios, { AxiosResponse, CancelToken } from 'axios';
+import type { AxiosResponse, CancelToken } from 'axios';
+import axios from 'axios';
 import qs from 'qs';
-import { SuggestionList } from '../types/query-response';
+import type { SuggestionList } from '../types/query-response';
 import { axiosInstance } from '../utils/axios-instance';
 
 export async function fetchSuggestion(text: string, cancelToken?: CancelToken): Promise<SuggestionList[] | undefined> {
