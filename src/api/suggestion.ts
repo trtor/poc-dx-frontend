@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import type { CancelToken } from 'axios';
 import axios from 'axios';
 import qs from 'qs';

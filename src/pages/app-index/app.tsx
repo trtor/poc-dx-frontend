@@ -67,6 +67,7 @@ async function promiseSuggestion(inputValue: string): Promise<SelectedListType[]
               findSuggestion.splice(maxSuggestionLength, findSuggestion.length - maxSuggestionLength);
             resolve(findSuggestion.map(e => ({ label: e.term, value: e.conceptId })));
           })
+          // eslint-disable-next-line no-console
           .catch(e => console.error(e));
       } else resolve([]);
     }, debounceInputTime);

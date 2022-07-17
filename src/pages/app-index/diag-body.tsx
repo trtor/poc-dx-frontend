@@ -9,7 +9,8 @@ export const DiagnosisBody: React.FC<{
   conceptId: string;
   selectedList: SelectedListType[];
   setSelectedList: React.Dispatch<React.SetStateAction<SelectedListType[]>>;
-}> = ({ conceptId, selectedList, setSelectedList }) => {
+}> = ({ conceptId }) => {
+  //  selectedList, setSelectedList
   const [conceptRelList, setConceptRelList] = useState<DiagnosisRelation[]>([]);
   const [openSuggestion, setOpenSuggestion] = useState<boolean>(true);
   const [selectedBodySite, setSelectedBodySite] = useState<SelectedListType | null>(null);

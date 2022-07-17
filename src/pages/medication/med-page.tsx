@@ -22,9 +22,9 @@ export type SelectedListUsageType = {
 };
 
 export const MedSearchPage: React.FC = () => {
-  const [inputValue, setInputValue] = useState<string | null>(null);
+  const [, setInputValue] = useState<string | null>(null);
   const [selectedMedMasterInput, setSelectedMedMasterInput] = useState<SelectedListType | null>(null);
-  const [inputUsageValue, setInputUsageValue] = useState<string | null>(null);
+  const [, setInputUsageValue] = useState<string | null>(null);
   const [selectedUsageInput, setSelectedUsageInput] = useState<SelectedListUsageType | null>(null);
 
   const inputUsageRef = useRef<Select<SelectedListUsageType, false, GroupBase<SelectedListUsageType>> | null>(null);
@@ -138,6 +138,7 @@ async function promiseSuggestionMedMaster(inputValue: string): Promise<SelectedL
               findSuggestion.splice(maxSuggestionLength, findSuggestion.length - maxSuggestionLength);
             resolve(findSuggestion.map(e => ({ label: e.name, value: e.id })));
           })
+          // eslint-disable-next-line no-console
           .catch(e => console.error(e));
       } else resolve([]);
     }, debounceInputTime);
@@ -169,6 +170,7 @@ async function promiseSuggestionUsage(inputValue: string, medId: string | undefi
               }))
             );
           })
+          // eslint-disable-next-line no-console
           .catch(e => console.error(e));
       } else resolve([]);
     }, debounceInputTime);

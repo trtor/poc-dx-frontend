@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import axios from 'axios';
 import qs from 'qs';
 import { axiosInstance } from '../utils/axios-instance';
