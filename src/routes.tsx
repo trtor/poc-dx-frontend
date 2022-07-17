@@ -8,8 +8,8 @@ function MainRoutes(): JSX.Element {
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL || ""}>
       <Routes>
-        <Route path="/med" element={<MedSearchPage />} />
-        <Route path="/" element={<AppSearchDx />} />
+        <Route path="/" element={<MedSearchPage />} />
+        <Route path="/dx" element={<AppSearchDx />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
