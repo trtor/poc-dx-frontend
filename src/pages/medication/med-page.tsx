@@ -11,7 +11,7 @@ const debounceInputTime = 20;
 const maxSuggestionLength = 1000;
 
 let cancelTokenSource: CancelTokenSource | null = null;
-// let cancelTokenSourceUsage: CancelTokenSource | null = null;
+let cancelTokenSourceUsage: CancelTokenSource | null = null;
 
 export type SelectedListType = { label: string; value: string };
 export type SelectedListUsageType = {
@@ -150,12 +150,10 @@ async function promiseSuggestionUsage(inputValue: string, medId: string | undefi
     if (timeout2) clearTimeout(timeout2);
     timeout2 = setTimeout(() => {
       if (inputValue.length > 1) {
-        // if (cancelTokenSourceUsage) cancelTokenSourceUsage.cancel();
-        // cancelTokenSourceUsage = axios.CancelToken.source();
-        // cancelTokenSourceUsage.token
-        fetchMedUsage(inputValue.trim(), medId || undefined)
+        if (cancelTokenSourceUsage) cancelTokenSourceUsage.cancel();
+        cancelTokenSourceUsage = axios.CancelToken.source();
+        fetchMedUsage(inputValue.trim(), medId || undefined, cancelTokenSourceUsage.token)
           .then(findSuggestion => {
-            console.log(findSuggestion?.length);
             if (!findSuggestion) return resolve([]);
             // if (findSuggestion.length > maxSuggestionLength)
             //   findSuggestion.splice(maxSuggestionLength, findSuggestion.length - maxSuggestionLength);
